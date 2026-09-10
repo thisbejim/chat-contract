@@ -152,7 +152,7 @@ python -m venv .venv
 .venv/bin/pytest
 .venv/bin/ruff check src tests
 .venv/bin/ruff format --check src tests
-python -m compileall -q src
+.venv/bin/python -m compileall -q src
 ```
 
 The test suite uses only synthetic fixtures and requires no API keys or network access. Contributions that add a provider rule should include a fixture, a deterministic finding code, and a link to the public behavior being checked.
