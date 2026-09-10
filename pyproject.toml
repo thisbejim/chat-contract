@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chat-contract"
+version = "0.1.0"
+description = "Offline semantic preflight checks for OpenAI-style chat and Responses API requests"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "thisbejim" }]
+keywords = [
+  "llm",
+  "openai",
+  "responses-api",
+  "tool-calling",
+  "testing",
+  "validation",
+  "cli",
+  "developer-tools",
+  "local-first",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development :: Testing",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0,<9",
+  "ruff>=0.8,<1",
+]
+
+[project.urls]
+Homepage = "https://github.com/thisbejim/chat-contract"
+Repository = "https://github.com/thisbejim/chat-contract"
+Issues = "https://github.com/thisbejim/chat-contract/issues"
+
+[project.scripts]
+chat-contract = "chat_contract.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501"]

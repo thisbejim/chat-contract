@@ -1,0 +1,42 @@
+{
+  "model": "gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Refund order 42"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_refund_1",
+          "type": "function",
+          "function": {
+            "name": "refund_order",
+            "arguments": "{\"order_id\":42"
+          }
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": "Actually, cancel that."
+    }
+  ],
+  "tools": [
+    {
+      "type": "function",
+      "function": {
+        "name": "refund_order",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "order_id": {"type": "integer"}
+          },
+          "required": ["order_id"]
+        }
+      }
+    }
+  ]
+}

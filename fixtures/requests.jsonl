@@ -1,0 +1,2 @@
+{"model":"gpt-5.5","messages":[{"role":"user","content":"Ping"}]}
+{"model":"gpt-5.5","messages":[{"role":"user","content":"Use the tool"},{"role":"assistant","content":null,"tool_calls":[{"id":"call_1","type":"function","function":{"name":"ping","arguments":"{}"}}]}],"tools":[{"type":"function","function":{"name":"ping","description":"Ping","parameters":{"type":"object","properties":{},"required":[],"additionalProperties":false}}}]}

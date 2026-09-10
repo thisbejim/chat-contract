@@ -1,0 +1,39 @@
+{
+  "model": "gpt-5.5",
+  "input": [
+    {
+      "type": "message",
+      "role": "user",
+      "content": "Look up the weather in Melbourne."
+    },
+    {
+      "type": "function_call",
+      "call_id": "call_weather_1",
+      "name": "get_weather",
+      "arguments": "{\"city\":\"Melbourne\"}"
+    },
+    {
+      "type": "function_call_output",
+      "call_id": "call_weather_1",
+      "output": "18°C and clear."
+    }
+  ],
+  "tools": [
+    {
+      "type": "function",
+      "name": "get_weather",
+      "description": "Get current weather for a city.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "city": {
+            "type": "string",
+            "description": "City name"
+          }
+        },
+        "required": ["city"],
+        "additionalProperties": false
+      }
+    }
+  ]
+}
