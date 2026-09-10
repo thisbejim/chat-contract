@@ -555,11 +555,11 @@ def _lint_messages(report: LintReport, messages: list[Any], declared_tools: set[
                 block: dict[str, str] = {}
                 for call_index, call in enumerate(calls):
                     call_path = f"{path}.tool_calls[{call_index}]"
-                    call_id = _lint_tool_call(report, call, call_path, declared_tools)
-                    if isinstance(call_id, str):
-                        all_call_ids.append(call_id)
+                    tool_call_id = _lint_tool_call(report, call, call_path, declared_tools)
+                    if isinstance(tool_call_id, str):
+                        all_call_ids.append(tool_call_id)
                         all_call_paths.append(f"{call_path}.id")
-                        block.setdefault(call_id, call_path)
+                        block.setdefault(tool_call_id, call_path)
                 pending = block
                 consumed = set()
 
